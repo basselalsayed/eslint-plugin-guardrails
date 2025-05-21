@@ -4,4 +4,4 @@ export const configs = {
   recommended,
 };
 
-export default configs;
+export default { configs };
