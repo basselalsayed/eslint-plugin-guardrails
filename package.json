@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-guardrails",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "generate-types": "pnpm tsup index.js --dts-only --outDir types --format esm --clean",
     "format": "pnpm prettier --write ."

@@ -1,3 +1,5 @@
+import * as eslint from 'eslint';
+
 /**
  * Generates an array of ESLint configurations based on provided directories and options.
  *
@@ -14,37 +16,21 @@
  * recommendedConfig(['components', 'utils'], {
  *   getAlias: (dir) => `@/${dir}`,
  * });
+ *
+ * @returns {import('eslint').Linter.Config[]} An array of ESLint configuration objects.
  */
 declare function recommended(directories: string[], { sourceDirectory, baseUrl, staticUpwardPathDepth, getAlias, }: {
     sourceDirectory?: string;
     baseUrl?: string;
     staticUpwardPathDepth?: number;
     getAlias?: (dir: string) => string;
-}): {
-    files: string[];
-    rules: {
-        'import/no-internal-modules': (string | {
-            forbid: string[];
-        })[];
-        'no-restricted-imports': (string | {
-            paths: {
-                name: string;
-                message: string;
-            }[];
-            patterns: {
-                group: string[];
-                message: string;
-            }[];
-        })[];
-    };
-}[];
+}): eslint.Linter.Config[];
 
 declare namespace configs {
     export { recommended };
 }
-
-declare namespace exported {
-    namespace configs { }
+declare namespace _default {
+    export { configs };
 }
 
-export { configs, exported as default };
+export { configs, _default as default };

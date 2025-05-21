@@ -18,6 +18,8 @@ import { getRestrictedIndexImports } from './utils/getRestrictedIndexImports.js'
  * recommendedConfig(['components', 'utils'], {
  *   getAlias: (dir) => `@/${dir}`,
  * });
+ *
+ * @returns {import('eslint').Linter.Config[]} An array of ESLint configuration objects.
  */
 export default function recommended(
   directories,
