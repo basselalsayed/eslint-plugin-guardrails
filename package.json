@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-guardrails",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "generate-types": "pnpm tsc",
     "format": "pnpm prettier --write ."
