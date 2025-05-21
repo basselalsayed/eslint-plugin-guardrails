@@ -6,8 +6,8 @@
     "outDir": "types",
     "checkJs": true,
     "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "types": ["node"]
   },
   "include": ["index.js"]

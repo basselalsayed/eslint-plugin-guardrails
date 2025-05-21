@@ -1,7 +1,10 @@
 import recommended from './src/plugin.js';
 
-export const configs = {
-  recommended,
+const exported = {
+  configs: {
+    recommended,
+  },
 };
 
-export default { configs };
+export const { configs } = exported;
+export default exported;
