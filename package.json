@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-guardrails",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "generate-types": "pnpm tsc",
     "format": "pnpm prettier --write ."
@@ -10,13 +10,14 @@
   "type": "module",
   "main": "index.js",
   "types": "./types/index.d.ts",
-  "peerDependencies": {
-    "eslint": "^9.0.0"
-  },
   "devDependencies": {
     "@types/node": "^22.15.21",
     "eslint": "^9.27.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-plugin-import": "^2.31.0"
   }
 }
