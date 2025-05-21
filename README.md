@@ -22,25 +22,31 @@ Built on top of [import/no-internal-modules](https://github.com/import-js/eslint
 - ✅ Walks your filesystem to block nested `index.ts` misuse
 - ✅ Optionally: Prevent messy upwards directory imports `../../../helper.ts` while still ensuring you don't import from an index.
 
+## 🚀 Installation
+
+```bash
+pnpm i eslint-plugin-guardrails -D
+```
+
 ## 🧱 Setup
 
 ```ts
 // eslint.config.js (ESLint v9+ with flat config)
 import importPlugin from 'eslint-plugin-import';
-import guardrails from 'eslint-plugin-guardrails';
+import { configs as guardrails } from 'eslint-plugin-guardrails';
 
 export default [
   importPlugin.flatConfigs.recommended,
-  ...guardrails.configs.recommended(['components', 'hooks', 'store', 'lib'], {
-    staticUpwardPathDepth = 3,
-    getAlias = (dirName) => `~/${dirname}`,
+  ...guardrails.recommended(['components', 'hooks', 'store', 'lib'], {
+    staticUpwardPathDepth: 3,
+    getAlias: (dirName) => `~/${dirname}`,
   }),
 ];
 ```
 
 ## 📦 Example
 
-Given the alias `@/components`, `@/pages` and the folder structure:
+Given the aliases `@/components`, `@/pages` and the folder structure:
 
 <pre lang="markdown">
 src
@@ -52,6 +58,17 @@ src
 └── pages
     └── home.tsx
 </pre>
+
+and the config:
+
+```ts
+export default [
+  importPlugin.flatConfigs.recommended,
+  ...guardrails.recommended(['components', 'pages'], {
+    getAlias: (dirName) => `@/${dirname}`,
+  }),
+];
+```
 
 ### Internal module
 
